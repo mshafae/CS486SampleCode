@@ -1,0 +1,17 @@
+Includes
+AntTweakBar_116.zip
+http://anttweakbar.sourceforge.net
+glew-1.10.0.tgz
+http://glew.sourceforge.net
+glfw-3.0.2.zip
+http://www.glfw.org
+gli-0.4.1.0.zip
+http://sourceforge.net/projects/ogl-image/
+glm-0.9.4.5.zip
+http://glm.g-truc.net/
+DevIL-1.7.8.zip
+http://openil.sourceforge.net
+redbook.zip
+http://www.opengl.org/archives/resources/code/samples/redbook.zip
+
+This was all built on OS X 10.8.4 with Xcode 4.6.3 on September 16, 2013.
