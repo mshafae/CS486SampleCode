@@ -227,12 +227,15 @@ bool intersectionDemo(double* frontPlane, double* backPlane){
   hitd h;
   triangle3d tri;  
   
+  // The triangle that is in the upper right quarter of the window
   tri.a[0] = 0.0;
   tri.a[1] = 0.0;
   tri.a[2] = 0.0;
+  
   tri.b[0] = 0.5;
   tri.b[1] = 0.0;
   tri.b[2] = 0.0;
+  
   tri.c[0] = 0.0;
   tri.c[1] = 0.5;
   tri.c[2] = 0.0;
