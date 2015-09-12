@@ -8,7 +8,7 @@
 //
 // This demonstration program requires that you provide your own GFXMath.h.
 //
-// $Id: camera_control_glfw.cpp 5625 2015-03-26 06:18:52Z mshafae $
+// $Id: picking_glfw.cpp 5918 2015-09-12 01:37:43Z mshafae $
 //
 
 #include <cstdlib>
@@ -72,30 +72,29 @@ void rayEval3(Vec3& p, ray& r, double t){
 
 bool rayTriangleIntersectiond(hit& h, ray& r, triangle& t){
   // Real Time Rendering p.581
-  // There is a bug in here I think.
   Vec3 e1, e2;
-  Vec3 p, s, q;
-  double a, f, u, v, _t;
+  Vec3 p, s, q, _r;
+  float a, f, u, v, _t;
   e1 = t.b - t.a;
   e2 = t.c - t.a;
-  p = cross(r.d, e2);
-  a = dot(e1, p);
-  if(fpEqual(a, 0.0, FP_SP_EPSILON)){
+  q = cross(r.d, e2);
+  a = dot(e1, q);
+  if(fpEqual(a, 0.0f, FP_SP_EPSILON)){
     return(false);
   }else{
     printf("XXXX %g\n", a);
   }
-  f = 1.0/a;
+  f = 1.0f/a;
   s = r.o - t.a;
-  u = dot(s, p) * f;
-  if(u < 0 || u > 1){
+  u = dot(s, q) * f;
+  if(u < 0){
     return(false);
   }else{
     printf("YYYY %g\n", u);
     
   }
-  q = cross(s, e1);
-  v = dot(r.d, q) * f;
+  _r = cross(s, e1);
+  v = dot(r.d, _r) * f;
   if(v < 0 || (u+v) > 1){
     return(false);
   }else{
