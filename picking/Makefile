@@ -1,10 +1,10 @@
 #
-# GNU Makefile for the camera_control_glut project
+# GNU Makefile for the hello_glut project
 #
 # Michael Shafae
 # mshafae at fullerton.edu
 #
-# $Id: Makefile 4894 2014-04-07 05:08:37Z mshafae $
+# $Id: Makefile 5650 2015-04-03 21:44:43Z mshafae $
 #
 # It depends on the config.guess program that is in the config directory
 # to guess what configuration to use for the build.
@@ -14,6 +14,8 @@ SHELL = /bin/sh
 SYSTEM ?= $(shell config/config.guess | cut -d - -f 3 | sed -e 's/[0-9\.]//g;')
 SYSTEM.SUPPORTED = $(shell test -f config/Makefile.$(SYSTEM) && echo 1)
 
+CFLAGS += -DNOTEXTURE
+
 ifeq ($(SYSTEM.SUPPORTED), 1)
 include config/Makefile.$(SYSTEM)
 else
@@ -21,12 +23,12 @@ $(error "Platform '$(SYSTEM)' not supported")
 endif
 
 
-TARGET = ply_viewer
+TARGET = picking
 # C++ Files
-CXXFILES = PlyModel.cpp ply_viewer_glfw.cpp
+CXXFILES =   picking_glfw.cpp glut_teapot.cpp transformations.cpp
 CFILES =  
 # Headers
-HEADERS = FaceList.h PlyModel.h
+HEADERS =  
 
 OBJECTS = $(CXXFILES:.cpp=.o) $(CFILES:.c=.o)
 
